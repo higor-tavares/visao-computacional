@@ -1,0 +1,11 @@
+import cv2
+original = cv2.imread('../../img/radiografia.png',0)
+suavizada = cv2.GaussianBlur(original,(13,13),3)
+detalhes = 3 * cv2.subtract(original,suavizada)
+realcada = cv2.add(original,detalhes)
+cv2.imshow('Original',original)
+cv2.imshow('Suave na nave',suavizada)
+cv2.imshow('Tuas bordas',detalhes)
+cv2.imshow('Realcada',realcada)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
